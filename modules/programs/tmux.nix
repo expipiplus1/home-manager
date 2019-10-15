@@ -42,8 +42,10 @@ let
     set  -g default-terminal "${cfg.terminal}"
     set  -g base-index      ${toString cfg.baseIndex}
     setw -g pane-base-index ${toString cfg.baseIndex}
-    # We need to set default-shell before calling new-session
-    ${optionalString (cfg.shell != null) ''set  -g default-shell "${cfg.shell}"''}
+    ${optionalString (cfg.shell != null) ''
+      # We need to set default-shell before calling new-session
+      set  -g default-shell "${cfg.shell}"
+    ''}
 
     ${optionalString cfg.newSession "new-session"}
 
