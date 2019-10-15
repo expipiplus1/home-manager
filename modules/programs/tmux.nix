@@ -46,7 +46,6 @@ let
       # We need to set default-shell before calling new-session
       set  -g default-shell "${cfg.shell}"
     ''}
-
     ${optionalString cfg.newSession "new-session"}
 
     ${optionalString cfg.reverseSplit ''
